@@ -42,3 +42,24 @@ main();
 ```
 
 つらい
+
+つくりました。 [typescript-fsa](https://github.com/aikoven/typescript-fsa)をヒントにしています。
+
+```
+	const someError = errorCreaterFactory<{num: number, str: string}>("someError")
+	const someError2 = errorCreaterFactory<{hogenum: number, hogenum2: number}>("someError")
+
+	try {
+		throw someError.create({num: 12, str: "hogehoge"})
+	} catch(e){
+		if (isErrorType(e,someError)) {
+			console.log(e); //   { type: 'someError', payload: { num: 12, str: 'hogehoge' } }
+			console.log(e.payload.num) // 12
+			console.log(e.payload.str) // hogehoge
+		} 
+		if (isErrorType(e, someError2)) {
+			console.log(e);
+			console.log(e.payload.hogenum2);
+		}
+	}
+```

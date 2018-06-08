@@ -43,10 +43,12 @@ test('errorCreater test', ()=>{
 		throw someError.create({num: 12, str: "hogehoge"})
 	} catch(e){
 		if (isErrorType(e,someError)) {
-			console.log(e.payload.num)
-			console.log(e.payload.str)
+			console.log(e); //   { type: 'someError', payload: { num: 12, str: 'hogehoge' } }
+			console.log(e.payload.num) // 12
+			console.log(e.payload.str) // hogehoge
 		} 
 		if (isErrorType(e, someError2)) {
+			console.log(e);
 			console.log(e.payload.hogenum2);
 		}
 	}
