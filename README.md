@@ -45,7 +45,7 @@ main();
 
 つくりました。 [typescript-fsa](https://github.com/aikoven/typescript-fsa)をヒントにしています。
 
-```
+```ts
 	const someError = errorCreaterFactory<{num: number, str: string}>("someError")
 	const someError2 = errorCreaterFactory<{hogenum: number, hogenum2: number}>("someError")
 

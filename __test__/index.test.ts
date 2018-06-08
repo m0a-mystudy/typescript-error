@@ -36,14 +36,15 @@ export function isErrorType<Payload>(
 
 
 test('errorCreater test', ()=>{
-	const someError = errorCreaterFactory<{num: number, str: string}>("someError")
-	const someError2 = errorCreaterFactory<{hogenum: number, hogenum2: number}>("someError")
+	const someError = errorCreaterFactory<{num: number, str: string}>("SOME_ERROR")
+	const someError2 = errorCreaterFactory<{hogenum: number, hogenum2: number}>("SOME_ERROR")
 
 	try {
 		throw someError.create({num: 12, str: "hogehoge"})
 	} catch(e){
 		if (isErrorType(e,someError)) {
-			console.log(e); //   { type: 'someError', payload: { num: 12, str: 'hogehoge' } }
+			console.log(e); 
+			//   { type: 'SOME_ERROR', payload: { num: 12, str: 'hogehoge' } }
 			console.log(e.payload.num) // 12
 			console.log(e.payload.str) // hogehoge
 		} 
